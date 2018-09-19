@@ -9,6 +9,6 @@ stage('Compile-package'){
   stage('Slack Notification'){
     slackSend baseUrl: 'https://hooks.slack.com/services/', 
       botUser: true, channel: '#jenkinstest', color: 'good', 
-      message: 'Pipeline Started', teamDomain: 'Test', tokenCredentialId: 'SlackHook'
+      message: 'A Message from Jenkins ~~~ Pipeline Started', teamDomain: 'Test', tokenCredentialId: 'SlackHook'
   }
 }

@@ -6,6 +6,10 @@ stage('Compile-package'){
   def mvnHome = tool name: 'MAVEN3', type: 'maven'
   sh= "${mvnHome}/bin/mvn package"
 }
+  stage('Clean Install'){
+  def mvnHome = tool name: 'MAVEN3', type: 'maven'
+  sh= "${mvnHome}/bin/mvn clean install"
+}
   stage('Slack Notification'){
     slackSend baseUrl: 'https://hooks.slack.com/services/', 
       botUser: true, channel: '#jenkinstest', color: 'good', 

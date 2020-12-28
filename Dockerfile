@@ -5,7 +5,7 @@ COPY ${JAR_LOC} java-tomcat-maven-example.war
 CMD ["mkdir lib"]
 ADD ${DEP_LOC} lib/
 EXPOSE 8080
-ENTRYPOINT ["java -jar lib/webapp-runner.jar java-tomcat-maven-example.war"]
+ENTRYPOINT ["java" ,"-jar" ,"lib/webapp-runner.jar","java-tomcat-maven-example.war", "&"]
 
 
 

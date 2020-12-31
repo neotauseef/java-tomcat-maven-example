@@ -20,7 +20,7 @@ pipeline{
       }
     }
     stage('Deploy'){
-        ansiblePlaybook become: true, colorized: true, installation: 'Ansible', inventory: '/usr/bin/ansible-inventory', playbook: 'deployer.yaml'
+        ansiblePlaybook become: true, colorized: true, installation: 'Ansible', inventory: '/usr/bin/ansible-inventory', playbook: '/home/ec2-user/workDir/nginx_installer.yml'
     }
       
   }

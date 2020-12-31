@@ -16,7 +16,7 @@ pipeline{
 
     stage('Deploy'){
       steps{
-        sh 'ansible-playbook /home/ec2-user/workDir/nginx_installer.yml'
+        sh 'ansible-playbook docker-installer.yml'
       }
     }
       

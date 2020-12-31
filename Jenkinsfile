@@ -16,7 +16,7 @@ pipeline{
 
     stage('Deploy'){
       steps{
-       ansiblePlaybook become: true, installation: 'Ansible', playbook: 'docker-installer.yml'
+       ansiblePlaybook become: true, colorized: true, disableHostKeyChecking: true, installation: 'Ansible', playbook: 'docker-installer.yml'
       }
     }
       

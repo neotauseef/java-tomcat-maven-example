@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: true
+  become_user: root
+  tasks:
+    - name: ensure docker is at the latest version
+      yum: name=docker state=latest
+    - name: start docker
+      service:
+          name: docker
+          state: started

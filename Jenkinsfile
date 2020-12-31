@@ -13,12 +13,7 @@ pipeline{
        sh 'mvn package'
       }
     }
-     stage('Build Project'){
-      steps{
-       sh 'mvn clean'
-       sh 'mvn package'
-      }
-    }
+
     stage('Deploy'){
       steps{
         ansiblePlaybook become: true, colorized: true, installation: 'Ansible', inventory: '/usr/bin/ansible-inventory', playbook: '/home/ec2-user/workDir/nginx_installer.yml'

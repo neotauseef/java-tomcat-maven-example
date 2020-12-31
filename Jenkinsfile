@@ -16,6 +16,7 @@ pipeline{
 
     stage('Deploy'){
       steps{
+        sh 'whoami'
        ansiblePlaybook become: true, colorized: true, disableHostKeyChecking: true, installation: 'Ansible', playbook: 'docker-installer.yml'
       }
     }

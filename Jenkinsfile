@@ -16,7 +16,7 @@ pipeline{
 
     stage('Deploy'){
       steps{
-        sh 'ansible-playbook docker-installer.yml'
+       ansiblePlaybook become: true, installation: 'Ansible', playbook: 'docker-installer.yml'
       }
     }
       

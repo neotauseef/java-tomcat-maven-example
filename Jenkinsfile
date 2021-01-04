@@ -1,5 +1,10 @@
 pipeline{
-  agent any
+   agent {
+        docker {
+            image 'maven:3-alpine' 
+            args '-v /root/.m2:/root/.m2' 
+        }
+    }
   stages{
     stage('git checkout'){
       steps{
@@ -7,19 +12,11 @@ pipeline{
       }
       
     }
-    stage('Build Project'){
-      steps{
-       sh 'mvn clean'
-       sh 'mvn package'
-      }
-    }
-
-    stage('Create Docker Image'){
-      steps{
-        sh 'docker build -t vijay880755/tomcat-maven-example:env.BUILD_NUMBER'
-        sh 'docker images'
-      }
-    }
+  stage('Build') { 
+            steps {
+                sh 'mvn -B -DskipTests clean package' 
+            }
+        }
       
   }
   

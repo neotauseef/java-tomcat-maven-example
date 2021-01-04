@@ -14,10 +14,10 @@ pipeline{
       }
     }
 
-    stage('Deploy'){
+    stage('Create Docker Image'){
       steps{
-        sh 'whoami'
-       ansiblePlaybook become: true, colorized: true, disableHostKeyChecking: true, installation: 'Ansible', playbook: 'docker-installer.yml'
+        sh 'docker build -t vijay880755/tomcat-maven-example:env.BUILD_NUMBER'
+        sh 'docker images'
       }
     }
       
